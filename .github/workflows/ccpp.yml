@@ -27,7 +27,7 @@ jobs:
         username: BeneSim
         password: ${{ secrets.GITHUB_TOKEN }}
     - name: compile
-        run: |
-            mkdir build
-            docker container run --rm -v .:/app -w /app/build docker.pkg.github.com/benesim/actions-test/gcc:latest cmake ..
-            docker container run --rm -v .:/app -w /app/build docker.pkg.github.com/benesim/actions-test/gcc:latest make
+      run: |
+        mkdir build
+        docker container run --rm -v .:/app -w /app/build docker.pkg.github.com/benesim/actions-test/gcc:latest cmake ..
+        docker container run --rm -v .:/app -w /app/build docker.pkg.github.com/benesim/actions-test/gcc:latest make
