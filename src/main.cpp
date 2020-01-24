@@ -3,6 +3,8 @@
 #include <iostream>
 
 // comment1
+// comment2
+// comment3
 
 int main() {
     const auto point1 = Point<int>(3, 4);
