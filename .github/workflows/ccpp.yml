@@ -7,6 +7,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
+    - uses: azure/docker-login@v1
+      with:
+          login-server: docker.pkg.github.com
+          password: ${{ GITHUB_TOKEN }}
     - name: Build docker image
       run: docker build . --file Dockerfile --tag docker.pkg.github.com/benesim/actions-test/gcc:latest
     - name: Push docker image
