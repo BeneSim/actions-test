@@ -6,6 +6,7 @@
 // comment2
 // comment3
 // comment4
+// comment5
 
 int main() {
     const auto point1 = Point<int>(3, 4);
