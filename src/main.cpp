@@ -2,6 +2,8 @@
 
 #include <iostream>
 
+// comment1
+
 int main() {
     const auto point1 = Point<int>(3, 4);
     const auto point2 = Point<int>(5, 6);
