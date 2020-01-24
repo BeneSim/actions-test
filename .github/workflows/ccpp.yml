@@ -44,6 +44,9 @@ jobs:
         release_name: Release ${{ github.ref }}
         draft: true
         prerelease: false
+    - name: Echo
+      run: |
+          ls -l actions-test
     - name: Upload Release Assets
       id: upload-release-asset
       uses: actions/upload-release-asset@v1.0.1
