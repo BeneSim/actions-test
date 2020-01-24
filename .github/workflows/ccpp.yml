@@ -42,10 +42,23 @@ jobs:
     needs: build
     if: startsWith(github.ref, 'refs/tags/v')
     steps:
-    - name: release
-      run: |
-          echo "Releasing"
-    - name: Get executable
-      uses: actions/download-artifact@v1
+    - name: Create Release
+      id: create_release
+      uses: actions/create-release@v1.0.0
+      env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        name: actions-test
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          draft: true
+          prerelease: false
+    - name: Upload Release Asset
+      id: upload-release-asset
+      uses: actions/upload-release-asset@v1.0.1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: ./actions-test.zip
+        asset_name: Binary
+        asset_content_type: application/zip
