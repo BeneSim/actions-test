@@ -56,5 +56,5 @@ jobs:
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
         asset_path: ./actions-test/actions-test.zip
-        asset_name: Binary
+        asset_name: actions-test_x86-64-linux.zip
         asset_content_type: application/zip
