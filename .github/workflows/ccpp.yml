@@ -31,3 +31,8 @@ jobs:
         mkdir build
         docker container run --rm -v $(pwd):/app -w /app/build docker.pkg.github.com/benesim/actions-test/gcc:latest cmake ..
         docker container run --rm -v $(pwd):/app -w /app/build docker.pkg.github.com/benesim/actions-test/gcc:latest make
+    - name: Archive executable
+      uses: actions/upload-artifact@v1
+      with:
+        name: actions-test
+        path: build/artifact-test
